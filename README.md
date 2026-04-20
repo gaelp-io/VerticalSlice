@@ -13,3 +13,4 @@ Final Devlog goes here.
 - [Car Sprites](https://agusstt.itch.io/pixel-art-car-sprite)
 - [Track Sprites](https://amcaricola.itch.io/car-street-and-monster-for-scrolling-game)
 - [Environment Sprites](https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-cainos-187605)
+- [Pixel Font](https://www.fontsquirrel.com/fonts/list/classification/pixel)
