@@ -12,3 +12,4 @@ Final Devlog goes here.
 ## Open-source assets
 - [Car Sprites](https://agusstt.itch.io/pixel-art-car-sprite)
 - [Track Sprites](https://free-game-assets.itch.io/free-racing-2d-game-kit)
+- [Environment Sprites](https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-cainos-187605)
