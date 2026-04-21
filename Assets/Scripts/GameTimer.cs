@@ -40,4 +40,9 @@ public class GameTimer : MonoBehaviour
         timer = 0f;
         isRunning = true;
     }
+
+    public float GetTime()
+    {
+        return timer;
+    }
 }
