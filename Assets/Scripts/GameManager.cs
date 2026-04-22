@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private bool spawnedBoost = false;
 
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }*/
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     void Update()
