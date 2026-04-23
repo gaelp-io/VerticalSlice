@@ -7,7 +7,7 @@ public class ReturnToStartMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             SceneManager.LoadScene("StartMenuScene");
         }

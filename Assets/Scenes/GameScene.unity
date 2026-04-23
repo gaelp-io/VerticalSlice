@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Escape to return to Start Menu
+  m_text: Press Backspace to return to Start Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ae64c1c7208c5f408ed0f763c0546d0, type: 2}
   m_sharedMaterial: {fileID: 3285735831020096428, guid: 2ae64c1c7208c5f408ed0f763c0546d0, type: 2}
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -521.82544, w: 0}
+  m_margin: {x: 0, y: 0, z: -600.62177, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1782,7 +1782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Escape to return to Start Menu
+  m_text: Press Backspace to return to Start Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ae64c1c7208c5f408ed0f763c0546d0, type: 2}
   m_sharedMaterial: {fileID: 3285735831020096428, guid: 2ae64c1c7208c5f408ed0f763c0546d0, type: 2}
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -521.82544, w: 0}
+  m_margin: {x: 0, y: 0, z: -597.9507, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
