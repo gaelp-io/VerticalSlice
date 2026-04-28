@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 195450555}
   - component: {fileID: 195450556}
   - component: {fileID: 195450557}
+  - component: {fileID: 195450558}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -381,6 +382,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &195450558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195450549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 1f07e157b46de6e4ba8a7841256798c5, type: 2}
 --- !u!1 &325019682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1970,7 @@ Transform:
   m_GameObject: {fileID: 886093212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.111, y: 0, z: 0}
+  m_LocalPosition: {x: -8.69, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9575,7 +9592,7 @@ Transform:
   m_GameObject: {fileID: 2125560318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.275, y: 0, z: 0}
+  m_LocalPosition: {x: 10.85, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
