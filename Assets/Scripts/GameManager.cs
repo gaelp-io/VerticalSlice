@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject boostPrefab;
     public Transform spawnPoint;
 
-    private bool spawnedBoost = false;
+    private bool spawnedat5 = false;
+    private bool spawnedat20 = false;
 
     private void Awake()
     {
@@ -21,21 +22,35 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!spawnedBoost && timer.GetTime() >= 5f)
+        float time = timer.GetTime();
+
+        if (!spawnedat5 && time >= 5f)
         {
-            Vector3 spawnPos = Camera.main.transform.position + new Vector3(12f, -0.46f, 0f);
+            SpawnBoost();
+            spawnedat5 = true;
+        }
+
+        if (!spawnedat20 && time >= 20f)
+        {
+            SpawnBoost();
+            spawnedat20 = true;
+        }
+    }
+
+    public void SpawnBoost()
+    {
+        Vector3 spawnPos = Camera.main.transform.position + new Vector3(12f, -0.46f, 0f);
             spawnPos.z = 0f;
 
             Instantiate(boostPrefab, spawnPos, Quaternion.identity);
-            spawnedBoost = true;
             Debug.Log("boost spawned!");
-        }
     }
 
     public void StartGame()
     {
         timer.ResetTimer();
-        spawnedBoost = false;
+        spawnedat5 = false;
+        spawnedat20 = false;
     }
 
     public void StopGame()
