@@ -9247,7 +9247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 530092628}
   boostPrefab: {fileID: 6661374661592309834, guid: 8406b8d3008fbef4ca1d3168de119c16, type: 3}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1879811174}
 --- !u!4 &1588468411
 Transform:
   m_ObjectHideFlags: 0
@@ -9397,6 +9397,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721981144}
   m_CullTransparentMesh: 1
+--- !u!1 &1879811173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879811174}
+  m_Layer: 0
+  m_Name: Speedboost Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1879811174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879811173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.67, y: -0.39, z: 0.035405554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1906499900
 GameObject:
   m_ObjectHideFlags: 0
@@ -9655,7 +9686,7 @@ RectTransform:
   m_GameObject: {fileID: 2042393521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1386027327}
@@ -9678,7 +9709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9800,3 +9831,4 @@ SceneRoots:
   - {fileID: 607976265}
   - {fileID: 1915568247}
   - {fileID: 626229438}
+  - {fileID: 1879811174}
