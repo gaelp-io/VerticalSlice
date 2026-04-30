@@ -14,18 +14,6 @@ public class GameManager : MonoBehaviour
 
     private bool spawnedBoost = false;
 
-    /*private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }*/
-
     private void Awake()
     {
         Instance = this;
@@ -40,6 +28,7 @@ public class GameManager : MonoBehaviour
 
             Instantiate(boostPrefab, spawnPos, Quaternion.identity);
             spawnedBoost = true;
+            Debug.Log("boost spawned!");
         }
     }
 
