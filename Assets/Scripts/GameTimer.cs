@@ -5,10 +5,22 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
+    public static List<GameTimer> allTimers = new List<GameTimer>();
+
     public TMP_Text timerText;
 
     private float timer = 0f;
     private bool isRunning = true;
+
+    void Awake()
+    {
+        allTimers.Add(this);
+    }
+
+    void OnDestroy()
+    {
+        allTimers.Remove(this);
+    }
 
     void Update()
     {
@@ -18,8 +30,6 @@ public class GameTimer : MonoBehaviour
 
         int minutes = Mathf.FloorToInt(timer / 60f);
         int seconds = Mathf.FloorToInt(timer % 60f);
-
-        // 2-digit milliseconds (00 - 99)
         int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
 
         timerText.text = string.Format(

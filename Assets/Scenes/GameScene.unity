@@ -157,6 +157,64 @@ Transform:
   - {fileID: 1906499901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &180676751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180676753}
+  - component: {fileID: 180676752}
+  m_Layer: 0
+  m_Name: Obstacle Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &180676752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180676751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfb92714a2b9054fbd0d39a9a13d266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 9075036087120959624, guid: f59e81a438ea1f34692add6dee0e4731, type: 3}
+  timer: {fileID: 530092628}
+  spawnInterval: 2
+  spawnDistance: 12
+  laneYPositions:
+  - 0.5
+  - -0.5
+  - -1.5
+  obstacleColors:
+  - {r: 0.93710685, g: 0.6522055, b: 0.07367173, a: 0}
+  - {r: 0.8301887, g: 0.07570895, b: 0.34474117, a: 0}
+  - {r: 0.11338543, g: 0.9245283, b: 0.72587615, a: 0}
+  - {r: 0.6039216, g: 0.49803922, b: 0.9882353, a: 0}
+  - {r: 0.8392157, g: 0.94509804, b: 0.29803923, a: 0}
+--- !u!4 &180676753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180676751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.14, y: 0.65087044, z: 0.0034756642}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195450549
 GameObject:
   m_ObjectHideFlags: 0
@@ -9832,3 +9890,4 @@ SceneRoots:
   - {fileID: 1915568247}
   - {fileID: 626229438}
   - {fileID: 1879811174}
+  - {fileID: 180676753}

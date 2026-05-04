@@ -57,4 +57,12 @@ public class GameManager : MonoBehaviour
     {
         timer.StopTimer();
     }
+
+    public void StopAllTimers()
+    {
+        foreach (GameTimer t in GameTimer.allTimers)
+        {
+            t.StopTimer();
+        }
+    }
 }
