@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerBoostTrigger : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerBoostTrigger : MonoBehaviour
     public SpeedBoostTimerUI boostUI;
 
     [Header("Lives")]
+    public TMP_Text livesText;
+    public TMP_Text livesShadowText;
     public int lives = 3;
     public float invincibilityTime = 5f;
 
@@ -16,6 +19,7 @@ public class PlayerBoostTrigger : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        UpdateLivesUI();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,11 +40,20 @@ public class PlayerBoostTrigger : MonoBehaviour
         }
     }
 
+    void UpdateLivesUI()
+    {
+        string text = "Lives: " + lives;
+
+        livesText.text = text;
+        livesShadowText.text = text;
+    }
+
     void TakeDamage()
     {
         if (isInvincible) return;
 
         lives--;
+        UpdateLivesUI();
 
         if (lives <= 0)
         {

@@ -9,6 +9,7 @@ TagManager:
   - TopWall
   - BottomWall
   - speedboost
+  - obstacle
   layers:
   - Default
   - TransparentFX
