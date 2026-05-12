@@ -71,26 +71,42 @@ public class PlayerBoostTrigger : MonoBehaviour
     {
         isInvincible = true;
 
-        sr.color = new Color(1f, 1f, 1f, 0.5f);
-
-        // Ignore Player ↔ Obstacle collisions
+        // disable obstacle collisions immediately
         Physics2D.IgnoreLayerCollision(
             LayerMask.NameToLayer("Player"),
             LayerMask.NameToLayer("Obstacle"),
             true
         );
 
-        yield return new WaitForSeconds(5f);
+        float elapsed = 0f;
+        float blinkRate = 0.15f;
 
-        // Re-enable collisions
+        while (elapsed < invincibilityTime)
+        {
+            bool visible = Mathf.FloorToInt(Time.time / blinkRate) % 2 == 0;
+
+            if (visible)
+            {
+                sr.color = new Color(1f, 0f, 0f, 0.5f); // red + transparent
+            }
+            else
+            {
+                sr.color = new Color(1f, 1f, 1f, 0.2f); // faint white
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // restore collisions FIRST
         Physics2D.IgnoreLayerCollision(
             LayerMask.NameToLayer("Player"),
             LayerMask.NameToLayer("Obstacle"),
             false
         );
 
+        // restore visuals
         sr.color = Color.white;
-
         isInvincible = false;
     }
 }
