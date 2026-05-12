@@ -19,7 +19,7 @@ Break-Down Steps:
     - Prefab has box collider 2D so that it collides with player and blocks them
 2. Obstacle Spawner
     - Spawns obstacles off screen
-    - Spanws obstacles randomly between the 3 lanes in the road
+    - Spawns obstacles randomly between the 3 lanes in the road
     - Prefabs destroy themselves after they go off screen
 3. Collision with player
     - Make sure box collider 2D for prefab works and blocks the player when they collide
