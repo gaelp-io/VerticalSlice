@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     public GameTimer timer;
+    public float finalTime;
+    public bool gameEnded = false;
+
+    public GameObject gameOverUI;
+    public TMP_Text finalTimeText;
 
     [Header("Speed Boost Spawn")]
     public GameObject boostPrefab;
@@ -34,6 +40,26 @@ public class GameManager : MonoBehaviour
         {
             SpawnBoost();
             spawnedat20 = true;
+        }
+
+        if (gameEnded)
+        {
+            gameOverUI.SetActive(true);
+
+            float t = finalTime;
+
+            int minutes = Mathf.FloorToInt(t / 60f);
+            int seconds = Mathf.FloorToInt(t % 60f);
+            int milliseconds = Mathf.FloorToInt((t * 100f) % 100f);
+
+            finalTimeText.text = string.Format(
+                "Final Time: {0:00}:{1:00}:{2:00}\nBetter luck next time!",
+                minutes,
+                seconds,
+                milliseconds
+            );
+
+            gameEnded = false; // prevent spam
         }
     }
 

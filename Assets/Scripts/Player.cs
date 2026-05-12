@@ -58,6 +58,10 @@ public class PlayerBoostTrigger : MonoBehaviour
         if (lives <= 0)
         {
             Destroy(gameObject);
+            
+            GameManager.Instance.finalTime = GameManager.Instance.timer.GetTime();
+            GameManager.Instance.gameEnded = true;
+
             GameManager.Instance.StopGame();
             GameManager.Instance.StopAllTimers();
             GameManager.Instance.StopGame();
