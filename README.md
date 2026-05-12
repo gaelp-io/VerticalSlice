@@ -12,7 +12,28 @@
 &nbsp;&nbsp;&nbsp;&nbsp;The way my state machine works is that the starting state is the "normal state" where the player begins the game with their speed variable set to 3 for an average speed. Then, whenever the speedboost prefab spawns, the statemachine transition stage checks for an on trigger 2D event to see if the player hits a gameobject with the tag "speedboost". If the player does, then the state machine triggers the transition into the "speedboost state" where the player has their speed variable set to 10 in order to give the player the feeling of obtaining a speedboost. Then, once the speedboost state is entered, the transition from speedboost to normal occurs after 10 seconds via a timer node that triggers the transition. Ultimately, I kept the state machine logic pretty simple after having difficulty getting it to work with more complicated nodes and logic. The other systems this state machine works alongside are the visual timer that pops up once the speedboost power up is obtained and the destruction of the scene prefab of the power up. For the desctrution of the scene prefab of the power up, I simply added a script that would detect the "player" tag which would then call the destroy method. This way, once the prefab collides with the player it destroys itself, I opted to go with this method because I wasn't able to properly add the destruction of the scene prefab because it would only lead to the error of destroying the prefab from the entire project itself which is not what I wanted. Then, for the timer I also created a script similar to the other timer in my game except I did a bit of research in order to get this cool effect of a circle slowing disppearing like a pie to show the player their time left with the power up visually instead of having them read more text. This timer also starts once the player hits a gameobject with the tag "speedboost" so that it is lined up with the transition of the player's state going from "normal" to "speedboost".
 
 ## Milestone 2 Devlog
-Milestone 2 Devlog goes here.
+### Devlog Question 1
+Break-Down Steps:
+1. Create Obstacle Prefab
+    - Make sprite renderer (same car sprite as player but different color)
+    - Prefab has box collider 2D so that it collides with player and blocks them
+2. Obstacle Spawner
+    - Spawns obstacles off screen
+    - Spanws obstacles randomly between the 3 lanes in the road
+    - Prefabs destroy themselves after they go off screen
+3. Collision with player
+    - Make sure box collider 2D for prefab works and blocks the player when they collide
+    - No glithces happen between the player and the obstacle whenever they collide
+
+### Devlog Question 2
+I think the tasks step break-down activity was really helpful becasue it felt like creating our own in class activity with the various steps we need to do in order to implement the feature. By making the process into steps with their own sub-instructions, it was very easy to create the feature because I just had to go step by step so if one step didn't work I wouldn't go too far ahead and would instead have to focus on fixing it before moving on to the next step.
+
+### Devlog Question 3
+
+
+### Devlog Question 4
+The Unity System I would like you to grade would be my TileMap that has the background look like the player is moving infinitely. The grass, trees/plants, and the road are all seperate tilemaps that have coding move them and loop their movement in order to make it look like the player is infinitely moving forward as they race.
+
 ## Milestone 3 Devlog
 Milestone 3 Devlog goes here.
 ## Milestone 4 Devlog
