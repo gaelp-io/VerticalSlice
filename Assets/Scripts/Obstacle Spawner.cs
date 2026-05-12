@@ -60,6 +60,8 @@ public class ObstacleSpawner : MonoBehaviour
 
         GameObject obstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
 
+        obstacle.layer = LayerMask.NameToLayer("Obstacle");
+
         SpriteRenderer sr = obstacle.GetComponent<SpriteRenderer>();
 
         if (sr != null && obstacleColors.Length > 0)
