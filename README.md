@@ -48,3 +48,4 @@ Final Devlog goes here.
 - [Rain Particles](https://assetstore.unity.com/packages/vfx/particles/rain-particles-351846)
 - [Main Menu Music](https://www.fesliyanstudios.com/royalty-free-music/download/funny-bit/2399)
 - [Gameplay Music](https://www.fesliyanstudios.com/royalty-free-music/download/8-bit-surf/568)
+- [UI Sprites](https://assetstore.unity.com/packages/2d/gui/icons/jazzcreate-pixel-multi-purpose-ui-46591)

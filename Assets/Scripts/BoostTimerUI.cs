@@ -8,6 +8,9 @@ public class SpeedBoostTimerUI : MonoBehaviour
     [Header("UI")]
     public Image boostCircle;
 
+    // 🔥 Add your child icon image here
+    public Image boostIcon;
+
     [Header("Timer")]
     public float maxTime = 10f;
     public float timeLeft;
@@ -17,13 +20,21 @@ public class SpeedBoostTimerUI : MonoBehaviour
     void Start()
     {
         boostCircle.fillAmount = 0;
+        boostIcon.fillAmount = 0;
+
+        // Hide both at start
+        boostCircle.gameObject.SetActive(false);
+        boostIcon.gameObject.SetActive(false);
     }
 
     public void StartBoost()
     {
         timeLeft = maxTime;
         isRunning = true;
+
+        // Show both
         boostCircle.gameObject.SetActive(true);
+        boostIcon.gameObject.SetActive(true);
     }
 
     void Update()
@@ -33,7 +44,11 @@ public class SpeedBoostTimerUI : MonoBehaviour
         timeLeft -= Time.deltaTime;
 
         float fill = timeLeft / maxTime;
-        boostCircle.fillAmount = Mathf.Clamp01(fill);
+        fill = Mathf.Clamp01(fill);
+
+        // Update BOTH radial fills
+        boostCircle.fillAmount = fill;
+        boostIcon.fillAmount = fill;
 
         if (timeLeft <= 0)
         {
@@ -44,7 +59,12 @@ public class SpeedBoostTimerUI : MonoBehaviour
     void EndBoost()
     {
         isRunning = false;
+
+        // Hide both
         boostCircle.gameObject.SetActive(false);
+        boostIcon.gameObject.SetActive(false);
+
         boostCircle.fillAmount = 0;
+        boostIcon.fillAmount = 0;
     }
 }
