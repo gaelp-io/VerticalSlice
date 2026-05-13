@@ -68,6 +68,16 @@ public class GameManager : MonoBehaviour
         Vector3 spawnPos = Camera.main.transform.position + new Vector3(12f, -0.46f, 0f);
             spawnPos.z = 0f;
 
+            Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, 1.5f);
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("obstacle"))
+                {
+                    Destroy(hit.gameObject);
+                }
+            }
+
             Instantiate(boostPrefab, spawnPos, Quaternion.identity);
             Debug.Log("boost spawned!");
     }
