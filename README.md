@@ -29,7 +29,7 @@ Break-Down Steps:
 I think the tasks step break-down activity was really helpful becasue it felt like creating our own in class activity with the various steps we need to do in order to implement the feature. By making the process into steps with their own sub-instructions, it was very easy to create the feature because I just had to go step by step so if one step didn't work I wouldn't go too far ahead and would instead have to focus on fixing it before moving on to the next step.
 
 ### Devlog Question 3
-
+How I bridged visual scripting and code in my project was by having my visual scripting graph call a method from my player's script that would activate the BoostTimerUI everytime the player would trigger a collider of a gameobject labeled boost. It uses OnTriggerEnter2D, just like my state machines uses to check if a player picked up a boost, and if it detects that the player has touched the boost clone, then it gets a component which is my player's script (player boost trigger) from "This" gameobject which is the player gameobject, and then it invokes the method "ActivateBoostUI" from the player's script which activates the BoostTimerUI. This allows the BoostTimerUI to be activated whenever the player's collider comes in contact with the speed boost's collider, no matter how many times that may happen.
 
 ### Devlog Question 4
 The Unity System I would like you to grade would be my TileMap that has the background look like the player is moving infinitely. The grass, trees/plants, and the road are all seperate tilemaps that have coding move them and loop their movement in order to make it look like the player is infinitely moving forward as they race.
