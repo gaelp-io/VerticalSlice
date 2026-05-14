@@ -19,7 +19,14 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
 
     private bool spawnedat5 = false;
-    private bool spawnedat20 = false;
+    private float nextBoostTime = 25f;
+
+    public void StartGame()
+    {
+        timer.ResetTimer();
+        spawnedat5 = false;
+        nextBoostTime = 25f;
+    }
 
     private void Awake()
     {
@@ -36,10 +43,12 @@ public class GameManager : MonoBehaviour
             spawnedat5 = true;
         }
 
-        if (!spawnedat20 && time >= 20f)
+        if (time >= nextBoostTime)
         {
             SpawnBoost();
-            spawnedat20 = true;
+
+            // next boost spawns 20–35 seconds later
+            nextBoostTime = time + Random.Range(20f, 35f);
         }
 
         if (gameEnded)
@@ -80,13 +89,6 @@ public class GameManager : MonoBehaviour
 
             Instantiate(boostPrefab, spawnPos, Quaternion.identity);
             Debug.Log("boost spawned!");
-    }
-
-    public void StartGame()
-    {
-        timer.ResetTimer();
-        spawnedat5 = false;
-        spawnedat20 = false;
     }
 
     public void StopGame()
