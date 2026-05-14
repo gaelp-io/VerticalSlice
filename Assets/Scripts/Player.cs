@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerBoostTrigger : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class PlayerBoostTrigger : MonoBehaviour
     {
         if (other.CompareTag("speedboost"))
         {
-            boostUI.StartBoost();
+            //BRIDGED CODE BITCHHHHHH LETS GOOOOOO
+            /*boostUI.StartBoost();*/
 
             Destroy(other.gameObject);
         }
