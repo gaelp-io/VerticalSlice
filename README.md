@@ -30,6 +30,7 @@ I think the tasks step break-down activity was really helpful becasue it felt li
 
 ### Devlog Question 3
 How I bridged visual scripting and code in my project was by having my visual scripting graph call a method from my player's script that would activate the BoostTimerUI everytime the player would trigger a collider of a gameobject labeled boost. It uses OnTriggerEnter2D, just like my state machines uses to check if a player picked up a boost, and if it detects that the player has touched the boost clone, then it gets a component which is my player's script (player boost trigger) from "This" gameobject which is the player gameobject, and then it invokes the method "ActivateBoostUI" from the player's script which activates the BoostTimerUI. This allows the BoostTimerUI to be activated whenever the player's collider comes in contact with the speed boost's collider, no matter how many times that may happen.
+
 <img width="681" height="191" alt="Bridging Visual Scripting and Code" src="https://github.com/user-attachments/assets/8130c408-17e0-47d7-9eeb-923ca1bc64ca" />
 
 ### Devlog Question 4
