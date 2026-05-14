@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5113409113805869264}
   - component: {fileID: -2372998869511650223}
   - component: {fileID: 5594699111154059074}
-  - component: {fileID: 1329540777213420309}
   - component: {fileID: -5077062969224992311}
   m_Layer: 6
   m_Name: SpeedBoost
@@ -163,22 +162,6 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!114 &1329540777213420309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6661374661592309834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: e5e05404ffa421f47abbc024a03980d3, type: 2}
 --- !u!114 &-5077062969224992311
 MonoBehaviour:
   m_ObjectHideFlags: 0

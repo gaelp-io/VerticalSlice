@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class SpeedBoostTimerUI : MonoBehaviour
 {
     [Header("UI")]
     public Image boostCircle;
 
-    // 🔥 Add your child icon image here
+    // Add child icon image here
     public Image boostIcon;
 
     [Header("Timer")]

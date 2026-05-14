@@ -113,4 +113,10 @@ public class PlayerBoostTrigger : MonoBehaviour
         sr.color = Color.white;
         isInvincible = false;
     }
+
+    public void ActivateBoostUI()
+    {
+        Debug.Log("BOOST UI METHOD CALLED");
+        boostUI.StartBoost();
+    }
 }
