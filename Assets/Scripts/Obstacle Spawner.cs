@@ -58,6 +58,16 @@ public class ObstacleSpawner : MonoBehaviour
         spawnPos.y = yPos;
         spawnPos.z = 0f;
 
+        Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, 1.5f);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("speedboost"))
+            {
+                return; // cancel obstacle spawn
+            }
+        }
+
         GameObject obstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
 
         obstacle.layer = LayerMask.NameToLayer("Obstacle");
