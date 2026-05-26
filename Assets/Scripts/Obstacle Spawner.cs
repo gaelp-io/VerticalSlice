@@ -40,48 +40,6 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
-    /*void SpawnObstacle()
-    {
-        int laneIndex;
-
-        do
-        {
-            laneIndex = Random.Range(0, laneYPositions.Length);
-        }
-        while (laneIndex == lastLane);
-
-        lastLane = laneIndex;
-
-        float yPos = laneYPositions[laneIndex];
-
-        Vector3 spawnPos = Camera.main.transform.position + new Vector3(spawnDistance, 0f, 0f);
-        spawnPos.y = yPos;
-        spawnPos.z = 0f;
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, 1.5f);
-
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.CompareTag("speedboost"))
-            {
-                return; // cancel obstacle spawn
-            }
-        }
-
-        GameObject obstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
-
-        obstacle.layer = LayerMask.NameToLayer("Obstacle");
-
-        SpriteRenderer sr = obstacle.GetComponent<SpriteRenderer>();
-
-        if (sr != null && obstacleColors.Length > 0)
-        {
-            Color c = obstacleColors[Random.Range(0, obstacleColors.Length)];
-            c.a = 1f;
-            sr.color = c;
-        }
-    }*/
-
     void SpawnObstacle()
     {
         // Decide if we should spawn 2 obstacles
