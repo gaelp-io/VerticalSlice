@@ -65,8 +65,6 @@ public class PlayerBoostTrigger : MonoBehaviour
             GameManager.Instance.gameEnded = true;
 
             GameManager.Instance.StopGame();
-            GameManager.Instance.StopAllTimers();
-            GameManager.Instance.StopGame();
             return;
         }
 
