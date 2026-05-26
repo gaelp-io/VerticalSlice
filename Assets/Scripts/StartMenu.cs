@@ -7,17 +7,10 @@ public class StartMenu : MonoBehaviour
 {
     private bool started = false;
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
     void Update()
     {
         if (started) return;
 
-        // Keyboard support (kept)
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartGame();
