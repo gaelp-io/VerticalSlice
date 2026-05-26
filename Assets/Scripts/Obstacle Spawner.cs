@@ -40,7 +40,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
-    void SpawnObstacle()
+    /*void SpawnObstacle()
     {
         int laneIndex;
 
@@ -79,6 +79,65 @@ public class ObstacleSpawner : MonoBehaviour
             Color c = obstacleColors[Random.Range(0, obstacleColors.Length)];
             c.a = 1f;
             sr.color = c;
+        }
+    }*/
+
+    void SpawnObstacle()
+    {
+        // Decide if we should spawn 2 obstacles
+        bool spawnDouble = Random.value < 0.35f; // 35% chance
+
+        List<int> usedLanes = new List<int>();
+
+        int obstacleCount = spawnDouble ? 2 : 1;
+
+        for (int i = 0; i < obstacleCount; i++)
+        {
+            int laneIndex;
+
+            do
+            {
+                laneIndex = Random.Range(0, laneYPositions.Length);
+            }
+            while (usedLanes.Contains(laneIndex));
+
+            usedLanes.Add(laneIndex);
+
+            float yPos = laneYPositions[laneIndex];
+
+            Vector3 spawnPos = Camera.main.transform.position + new Vector3(spawnDistance, 0f, 0f);
+            spawnPos.y = yPos;
+            spawnPos.z = 0f;
+
+            // Prevent spawning on top of speed boosts
+            Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPos, 1.5f);
+
+            bool blocked = false;
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("speedboost"))
+                {
+                    blocked = true;
+                    break;
+                }
+            }
+
+            if (blocked)
+                continue;
+
+            GameObject obstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
+
+            obstacle.layer = LayerMask.NameToLayer("Obstacle");
+
+            SpriteRenderer sr = obstacle.GetComponent<SpriteRenderer>();
+
+            if (sr != null && obstacleColors.Length > 0)
+            {
+                Color c = obstacleColors[Random.Range(0, obstacleColors.Length)];
+                c.a = 1f;
+                sr.color = c;
+            }
         }
     }
 }
