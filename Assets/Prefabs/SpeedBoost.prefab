@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2372998869511650223}
   - component: {fileID: 5594699111154059074}
   - component: {fileID: -5077062969224992311}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: SpeedBoost
   m_TagString: speedboost
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e706b93289ec0946ab8ee4c85443f0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
