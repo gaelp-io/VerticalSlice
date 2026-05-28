@@ -37,7 +37,17 @@ How I bridged visual scripting and code in my project was by having my visual sc
 The Unity System I would like you to grade would be my TileMap that has the background look like the player is moving infinitely. The grass, trees/plants, and the road are all seperate tilemaps that have coding move them and loop their movement in order to make it look like the player is infinitely moving forward as they race.
 
 ## Milestone 3 Devlog
-Milestone 3 Devlog goes here.
+### Devlog Question 1
+I added a shadergraph in my game that allows the player's car to have headlights, making the player really focus on the game in order to see what upcoming obstacles they need to avoid. I combined a MainTex, MaskTex, and a Normal map as SampleTexture2D nodes and attaching them into Base Color, Sprite Mask, Normal (Tangent Space)(3) and Alpha. The mask allows the material I attatched to the tilemaps and player gameobject to shine/glow in the respective 2D light I attach. In this case, I used a freeform light 2D in order to create the proper shape of headlights and placed this light in front of the player gameobject (as well as making it a child gameobject).
+
+ShaderGraph Image:
+
+
+### Devlog Question 2
+The main thing I improved in my gameplay was fixing the speed of the player and obstacles in order to have the player still feel challenged but not think that the game is impossible. The main issue was the speed boost making the player too fast and therefore making it harder to control the car which made players not want to pick up speed boost because of that reason. So I changed the default speed of the player's car, changed the obstacle spawning interval, and changed how much speed is added to the player once they pick up a speed boost.
+
+### Devlog Question 3
+Some new content I added was the addition of obstacles randomly spanwing double so that sometimes the obstacles would take up two lanes and force the player into one lane. This improved gameplay because before, players were simply able to just go up and down infinitely dodging obstacles which killed the fun aspect and essentially ruined the game completely. However, with double lane obstacles added, the player has to utilize all 3 lanes in order to get a higher time each play session.
 
 ## Final Devlog
 Final Devlog goes here.
