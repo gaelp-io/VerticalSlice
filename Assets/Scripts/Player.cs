@@ -119,4 +119,17 @@ public class PlayerBoostTrigger : MonoBehaviour
         Debug.Log("BOOST UI METHOD CALLED");
         boostUI.StartBoost();
     }
+
+    void TakeDamage(bool ignoreInvincibility = false)
+    {
+        if (isInvincible && !ignoreInvincibility) return;
+
+        lives--;
+        UpdateLivesUI();
+    }
+
+    public void TakeQTEDamage()
+    {
+        TakeDamage(true);
+    }
 }

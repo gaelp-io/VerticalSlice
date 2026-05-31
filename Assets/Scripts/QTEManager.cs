@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QTEManager : MonoBehaviour
 {
+    private PlayerBoostTrigger playerScript;
+    private ScriptMachine machine;
+    private GameObject player;
+
     [Header("UI")]
     public GameObject qtePanel;
     public TMP_Text counterText;
@@ -27,11 +32,20 @@ public class QTEManager : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            machine = player.GetComponent<ScriptMachine>();
+            playerScript = player.GetComponent<PlayerBoostTrigger>();
+        }
+
         qtePanel.SetActive(false);
     }
 
     public void StartQTE()
     {
+        machine.enabled = false;
         currentPresses = 0;
         timeRemaining = qteDuration;
         qteActive = true;
@@ -78,6 +92,8 @@ public class QTEManager : MonoBehaviour
         qteActive = false;
         qtePanel.SetActive(false);
 
+        machine.enabled = true;
+
         FindObjectOfType<EnemyChase>().EndQTE();
     }
 
@@ -87,6 +103,13 @@ public class QTEManager : MonoBehaviour
 
         qteActive = false;
         qtePanel.SetActive(false);
+
+        machine.enabled = true;
+
+        if (playerScript != null)
+        {
+            playerScript.TakeQTEDamage();
+        }
 
         FindObjectOfType<EnemyChase>().EndQTE();
     }
