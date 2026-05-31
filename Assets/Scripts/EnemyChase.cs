@@ -18,6 +18,8 @@ public class EnemyChase : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isChasing;
+    private bool qteTriggered = false;
+    private bool waitingForQTE = false;
 
     void Start()
     {
@@ -34,8 +36,6 @@ public class EnemyChase : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player == null) return;
-
         // Return to reset point
         if (isReturning)
         {
@@ -51,9 +51,22 @@ public class EnemyChase : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
                 transform.position = resetPosition;
+
                 isReturning = false;
+
+                // Stay parked here while QTE is active
+                if (waitingForQTE)
+                {
+                    return;
+                }
             }
 
+            return;
+        }
+
+        if (waitingForQTE && !isReturning)
+        {
+            rb.velocity = Vector2.zero;
             return;
         }
 
@@ -81,6 +94,14 @@ public class EnemyChase : MonoBehaviour
             Debug.Log("Enemy touched player!");
 
             isReturning = true;
+            waitingForQTE = true;
+
+            QTEManager.Instance.StartQTE();
         }
+    }
+
+    public void EndQTE()
+    {
+        waitingForQTE = false;
     }
 }
