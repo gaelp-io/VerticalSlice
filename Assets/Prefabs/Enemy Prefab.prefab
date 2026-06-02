@@ -256,9 +256,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  destroyX: 10
   detectionRange: 5
   moveSpeed: 3
   resetPosition: {x: 5, y: -0.5}
+  lives: 3
 --- !u!1 &9127058070606644409
 GameObject:
   m_ObjectHideFlags: 0

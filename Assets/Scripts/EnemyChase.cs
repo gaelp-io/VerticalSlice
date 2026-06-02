@@ -7,19 +7,31 @@ public class EnemyChase : MonoBehaviour
     [Header("Target")]
     public Transform player;
 
+    [Header("Death")]
+    public float destroyX = 20f;
+
     [Header("Chase Settings")]
     public float detectionRange = 5f;
     public float moveSpeed = 3f;
 
     [Header("Reset Position")]
     public Vector2 resetPosition;
+    public Vector2 spawnPosition;
 
     private bool isReturning = false;
 
+    [Header("Lives")]
+    public int lives = 3;
+
+    private bool isDying = false;
+    private bool drivingAway = false;
+
     private Rigidbody2D rb;
+    private bool enteringScene = true;
     private bool isChasing;
     private bool qteTriggered = false;
     private bool waitingForQTE = false;
+    private Collider2D enemyCollider;
 
     void Start()
     {
@@ -32,10 +44,51 @@ public class EnemyChase : MonoBehaviour
             if (playerObj != null)
                 player = playerObj.transform;
         }
+
+        enteringScene = true;
+
+        enemyCollider = GetComponent<Collider2D>();
+        enemyCollider.enabled = false;
     }
 
     void FixedUpdate()
     {
+        if (enteringScene)
+        {
+            Vector2 direction =
+                (resetPosition - rb.position).normalized;
+
+            rb.velocity = direction * moveSpeed;
+
+            float distance =
+                Vector2.Distance(rb.position, resetPosition);
+
+            if (distance < 0.1f)
+            {
+                rb.velocity = Vector2.zero;
+                transform.position = resetPosition;
+                enemyCollider.enabled = true;
+                enteringScene = false;
+            }
+
+            return;
+        }
+
+        if (drivingAway)
+        {
+            /*Debug.Log("Driving away. X = " + transform.position.x);*/
+
+            rb.velocity = Vector2.right * moveSpeed;
+
+            if (transform.position.x >= destroyX)
+            {
+                Debug.Log("Destroying enemy");
+                Destroy(gameObject);
+            }
+
+            return;
+        }
+
         // Return to reset point
         if (isReturning)
         {
@@ -49,9 +102,18 @@ public class EnemyChase : MonoBehaviour
 
             if (distanceToReset < 0.1f)
             {
-                rb.velocity = Vector2.zero;
                 transform.position = resetPosition;
 
+                if (isDying)
+                {
+                    /*Debug.Log("Enemy reached reset point and is driving away");*/
+
+                    drivingAway = true;
+                    isReturning = false;
+                    return;
+                }
+
+                rb.velocity = Vector2.zero;
                 isReturning = false;
 
                 // Stay parked here while QTE is active
@@ -96,12 +158,31 @@ public class EnemyChase : MonoBehaviour
             isReturning = true;
             waitingForQTE = true;
 
-            QTEManager.Instance.StartQTE();
+            QTEManager.Instance.StartQTE(this);
         }
     }
 
     public void EndQTE()
     {
         waitingForQTE = false;
+    }
+
+    public void TakeQTEDamage()
+    {
+        lives--;
+
+        Debug.Log("Enemy lives remaining: " + lives);
+
+        if (lives <= 0)
+        {
+            isDying = true;
+            isReturning = true;
+
+            Collider2D col = GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+        }
     }
 }

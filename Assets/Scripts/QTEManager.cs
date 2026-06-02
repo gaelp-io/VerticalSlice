@@ -9,6 +9,7 @@ public class QTEManager : MonoBehaviour
     private PlayerBoostTrigger playerScript;
     private ScriptMachine machine;
     private GameObject player;
+    private EnemyChase currentEnemy;
 
     [Header("UI")]
     public GameObject qtePanel;
@@ -43,9 +44,12 @@ public class QTEManager : MonoBehaviour
         qtePanel.SetActive(false);
     }
 
-    public void StartQTE()
+    public void StartQTE(EnemyChase enemy)
     {
+        currentEnemy = enemy;
+
         machine.enabled = false;
+
         currentPresses = 0;
         timeRemaining = qteDuration;
         qteActive = true;
@@ -94,7 +98,11 @@ public class QTEManager : MonoBehaviour
 
         machine.enabled = true;
 
-        FindObjectOfType<EnemyChase>().EndQTE();
+        if (currentEnemy != null)
+        {
+            currentEnemy.TakeQTEDamage();
+            currentEnemy.EndQTE();
+        }
     }
 
     void Failure()
@@ -111,6 +119,9 @@ public class QTEManager : MonoBehaviour
             playerScript.TakeQTEDamage();
         }
 
-        FindObjectOfType<EnemyChase>().EndQTE();
+        if (currentEnemy != null)
+        {
+            currentEnemy.EndQTE();
+        }
     }
 }
