@@ -37,18 +37,19 @@ public class GameManager : MonoBehaviour
     {
         float time = timer.GetTime();
 
-        if (!spawnedat5 && time >= 5f)
+        if (!EnemyChase.enemyActive)
         {
-            SpawnBoost();
-            spawnedat5 = true;
-        }
+            if (!spawnedat5 && time >= 5f)
+            {
+                SpawnBoost();
+                spawnedat5 = true;
+            }
 
-        if (time >= nextBoostTime)
-        {
-            SpawnBoost();
-
-            // next boost spawns 20–35 seconds later
-            nextBoostTime = time + Random.Range(20f, 35f);
+            if (time >= nextBoostTime)
+            {
+                SpawnBoost();
+                nextBoostTime = time + Random.Range(20f, 35f);
+            }
         }
 
         if (gameEnded)

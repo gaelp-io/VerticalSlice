@@ -42,6 +42,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
+        if (EnemyChase.enemyActive)
+        return;
+        
         // Decide if we should spawn 2 obstacles
         bool spawnDouble = Random.value < 0.35f; // 35% chance
 

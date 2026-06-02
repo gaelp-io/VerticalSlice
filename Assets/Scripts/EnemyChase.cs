@@ -32,6 +32,7 @@ public class EnemyChase : MonoBehaviour
     private bool qteTriggered = false;
     private bool waitingForQTE = false;
     private Collider2D enemyCollider;
+    public static bool enemyActive = false;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class EnemyChase : MonoBehaviour
             if (transform.position.x >= destroyX)
             {
                 Debug.Log("Destroying enemy");
+                EnemyChase.enemyActive = false;
                 Destroy(gameObject);
             }
 

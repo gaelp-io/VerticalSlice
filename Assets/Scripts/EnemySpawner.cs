@@ -44,6 +44,8 @@ public class EnemySpawner : MonoBehaviour
             Quaternion.identity
         );
 
+        EnemyChase.enemyActive = true;
+
         EnemyChase chase = enemy.GetComponent<EnemyChase>();
 
         if (chase != null)
