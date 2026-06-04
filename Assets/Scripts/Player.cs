@@ -8,6 +8,10 @@ public class PlayerBoostTrigger : MonoBehaviour
 {
     public SpeedBoostTimerUI boostUI;
 
+    [Header("Audio")]
+    private AudioSource audioSource;
+    public AudioClip speedBoostSFX;
+
     [Header("Lives")]
     public TMP_Text livesText;
     public TMP_Text livesShadowText;
@@ -20,6 +24,7 @@ public class PlayerBoostTrigger : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         UpdateLivesUI();
     }
 
@@ -37,6 +42,10 @@ public class PlayerBoostTrigger : MonoBehaviour
         {
             //BRIDGED CODE BITCHHHHHH LETS GOOOOOO
             /*boostUI.StartBoost();*/
+            if (speedBoostSFX != null)
+            {
+                audioSource.PlayOneShot(speedBoostSFX, 3f);
+            }
 
             Destroy(other.gameObject);
         }
