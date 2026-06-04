@@ -60,3 +60,4 @@ Final Devlog goes here.
 - [Main Menu Music](https://www.fesliyanstudios.com/royalty-free-music/download/funny-bit/2399)
 - [Gameplay Music](https://www.fesliyanstudios.com/royalty-free-music/download/8-bit-surf/568)
 - [UI Sprites](https://assetstore.unity.com/packages/2d/gui/icons/jazzcreate-pixel-multi-purpose-ui-46591)
+- [Boost Pick-up Sound Effect](https://pixabay.com/sound-effects/film-special-effects-pick-up-sfx-38516/)
