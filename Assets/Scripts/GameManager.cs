@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public GameObject boostPrefab;
     public Transform spawnPoint;
 
+    [Header("Life Pickup Spawn")]
+    public GameObject lifePrefab;
+
+    private float nextLifeTime = 35f;
     private bool spawnedat5 = false;
     private float nextBoostTime = 25f;
 
@@ -26,6 +30,7 @@ public class GameManager : MonoBehaviour
         timer.ResetTimer();
         spawnedat5 = false;
         nextBoostTime = 25f;
+        nextLifeTime = 40f;
     }
 
     private void Awake()
@@ -49,6 +54,14 @@ public class GameManager : MonoBehaviour
             {
                 SpawnBoost();
                 nextBoostTime = time + Random.Range(20f, 35f);
+            }
+
+            if (time >= nextLifeTime)
+            {
+                SpawnLife();
+
+                // rarer than boosts
+                nextLifeTime = time + Random.Range(35f, 50f);
             }
         }
 
@@ -86,10 +99,44 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(hit.gameObject);
                 }
+
+                if (hit.CompareTag("lifepickup"))
+                {
+                    Destroy(hit.gameObject);
+                }
             }
 
             Instantiate(boostPrefab, spawnPos, Quaternion.identity);
             Debug.Log("boost spawned!");
+    }
+
+    public void SpawnLife()
+    {
+        Vector3 spawnPos =
+            Camera.main.transform.position +
+            new Vector3(12f, -0.46f, 0f);
+
+        spawnPos.z = 0f;
+
+        Collider2D[] hits =
+            Physics2D.OverlapCircleAll(spawnPos, 1.5f);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("obstacle"))
+            {
+                Destroy(hit.gameObject);
+            }
+
+            if (hit.CompareTag("speedboost"))
+            {
+                Destroy(hit.gameObject);
+            }
+        }
+
+        Instantiate(lifePrefab, spawnPos, Quaternion.identity);
+
+        Debug.Log("Life pickup spawned!");
     }
 
     public void StopGame()

@@ -11,6 +11,8 @@ public class PlayerBoostTrigger : MonoBehaviour
     [Header("Audio")]
     private AudioSource audioSource;
     public AudioClip speedBoostSFX;
+    public AudioClip hitObstacleSFX;
+    public AudioClip extraLifeSFX;
 
     [Header("Lives")]
     public TMP_Text livesText;
@@ -20,6 +22,7 @@ public class PlayerBoostTrigger : MonoBehaviour
 
     private bool isInvincible = false;
     private SpriteRenderer sr;
+    public int maxLives = 5;
 
     private void Start()
     {
@@ -32,6 +35,11 @@ public class PlayerBoostTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {
+             if (hitObstacleSFX != null)
+            {
+                audioSource.PlayOneShot(hitObstacleSFX, 1.5f);
+            }
+
             TakeDamage();
         }
     }
@@ -40,12 +48,22 @@ public class PlayerBoostTrigger : MonoBehaviour
     {
         if (other.CompareTag("speedboost"))
         {
-            //BRIDGED CODE BITCHHHHHH LETS GOOOOOO
-            /*boostUI.StartBoost();*/
             if (speedBoostSFX != null)
             {
-                audioSource.PlayOneShot(speedBoostSFX, 3f);
+                audioSource.PlayOneShot(speedBoostSFX, 3.5f);
             }
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("lifepickup"))
+        {
+            if (extraLifeSFX != null)
+            {
+                audioSource.PlayOneShot(extraLifeSFX, 1f);
+            }
+
+            AddLife(1);
 
             Destroy(other.gameObject);
         }
@@ -140,5 +158,12 @@ public class PlayerBoostTrigger : MonoBehaviour
     public void TakeQTEDamage()
     {
         TakeDamage(true);
+    }
+
+    public void AddLife(int amount = 1)
+    {
+        lives = Mathf.Min(lives + amount, maxLives);
+
+        UpdateLivesUI();
     }
 }

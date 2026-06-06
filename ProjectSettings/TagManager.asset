@@ -11,6 +11,7 @@ TagManager:
   - speedboost
   - obstacle
   - Enemy
+  - lifepickup
   layers:
   - Default
   - TransparentFX

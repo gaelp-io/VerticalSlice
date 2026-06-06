@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyChase : MonoBehaviour
 {
+    [Header("Audio")]
+    public AudioClip enemyHitSFX;
+
+    private AudioSource audioSource;
+
     [Header("Target")]
     public Transform player;
 
@@ -37,6 +42,7 @@ public class EnemyChase : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         if (player == null)
         {
@@ -155,6 +161,11 @@ public class EnemyChase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (enemyHitSFX != null)
+            {
+                audioSource.PlayOneShot(enemyHitSFX, 1.5f);
+            }
+
             Debug.Log("Enemy touched player!");
 
             isReturning = true;

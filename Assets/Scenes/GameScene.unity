@@ -474,10 +474,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostUI: {fileID: 626229437}
   speedBoostSFX: {fileID: 8300000, guid: 48634ab3dc6346b49a790daae21b4b9a, type: 3}
+  hitObstacleSFX: {fileID: 8300000, guid: 56909f962951a72429e47e3f3eae69f8, type: 3}
+  extraLifeSFX: {fileID: 8300000, guid: 33afcf71a3a68ad488e25650b06515de, type: 3}
   livesText: {fileID: 343100737}
   livesShadowText: {fileID: 715236317}
   lives: 3
   invincibilityTime: 5
+  maxLives: 5
 --- !u!82 &195450560
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10844,6 +10847,7 @@ MonoBehaviour:
   finalTimeText: {fileID: 1194786974}
   boostPrefab: {fileID: 6661374661592309834, guid: 8406b8d3008fbef4ca1d3168de119c16, type: 3}
   spawnPoint: {fileID: 0}
+  lifePrefab: {fileID: 6661374661592309834, guid: b6dd4bc61ff5ab64cb9342453cac7225, type: 3}
 --- !u!4 &1588468411
 Transform:
   m_ObjectHideFlags: 0
