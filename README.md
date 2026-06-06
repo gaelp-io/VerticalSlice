@@ -61,3 +61,6 @@ Final Devlog goes here.
 - [Gameplay Music](https://www.fesliyanstudios.com/royalty-free-music/download/8-bit-surf/568)
 - [UI Sprites](https://assetstore.unity.com/packages/2d/gui/icons/jazzcreate-pixel-multi-purpose-ui-46591)
 - [Boost Pick-up Sound Effect](https://pixabay.com/sound-effects/film-special-effects-pick-up-sfx-38516/)
+- [Obstacle Hit Sound Effect](https://pixabay.com/sound-effects/film-special-effects-pixel-explosion-319166/)
+- [Life Power up Sound Effect](https://pixabay.com/sound-effects/film-special-effects-pixel-coin-collect-197952/)
+- [Boss Hit Sound Effect](https://pixabay.com/sound-effects/technology-tiny-explosion-474081/)
