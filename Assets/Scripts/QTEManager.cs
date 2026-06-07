@@ -6,10 +6,20 @@ using UnityEngine;
 
 public class QTEManager : MonoBehaviour
 {
+    public Material normalMaterial;
+    public Material qteMaterial;
+
+    private SpriteRenderer playerRenderer;
+
     private PlayerBoostTrigger playerScript;
     private ScriptMachine machine;
     private GameObject player;
     private EnemyChase currentEnemy;
+
+    [Header("Audio")]
+    public AudioClip qteFailSound;
+
+    private AudioSource playerAudio;
 
     [Header("UI")]
     public GameObject qtePanel;
@@ -34,11 +44,15 @@ public class QTEManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerRenderer =
+        GameObject.FindGameObjectWithTag("Player")
+        .GetComponent<SpriteRenderer>();
 
         if (player != null)
         {
             machine = player.GetComponent<ScriptMachine>();
             playerScript = player.GetComponent<PlayerBoostTrigger>();
+            playerAudio = player.GetComponent<AudioSource>();
         }
 
         qtePanel.SetActive(false);
@@ -46,6 +60,8 @@ public class QTEManager : MonoBehaviour
 
     public void StartQTE(EnemyChase enemy)
     {
+        playerRenderer.material = qteMaterial;
+
         currentEnemy = enemy;
 
         machine.enabled = false;
@@ -91,6 +107,8 @@ public class QTEManager : MonoBehaviour
 
     void Success()
     {
+        playerRenderer.material = normalMaterial;
+
         Debug.Log("QTE Success");
 
         qteActive = false;
@@ -107,6 +125,8 @@ public class QTEManager : MonoBehaviour
 
     void Failure()
     {
+        playerRenderer.material = normalMaterial;
+
         Debug.Log("QTE Failed");
 
         qteActive = false;
@@ -117,6 +137,11 @@ public class QTEManager : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.TakeQTEDamage();
+        }
+
+        if (playerAudio != null && qteFailSound != null)
+        {
+            playerAudio.PlayOneShot(qteFailSound);
         }
 
         if (currentEnemy != null)
