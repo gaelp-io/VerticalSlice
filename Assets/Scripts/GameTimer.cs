@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     public static List<GameTimer> allTimers = new List<GameTimer>();
 
     public TMP_Text timerText;
+    public TMP_Text timerShadowText;
 
     private float timer = 0f;
     private bool isRunning = true;
@@ -32,12 +33,15 @@ public class GameTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(timer % 60f);
         int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
 
-        timerText.text = string.Format(
+        string timeString = string.Format(
             "Time: {0:00}:{1:00}:{2:00}",
             minutes,
             seconds,
             milliseconds
         );
+
+        timerText.text = timeString;
+        timerShadowText.text = timeString;
     }
 
     public void StopTimer()
